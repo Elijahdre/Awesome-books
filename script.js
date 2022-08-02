@@ -1,24 +1,24 @@
 /* eslint-disable no-unused-vars */
-const booksContainer = document.querySelector("#books-container");
-const booksForm = document.querySelector(".books-form");
-const bookTitle = document.getElementById("title");
-const bookAuthor = document.getElementById("author");
+const booksContainer = document.querySelector('#books-container');
+const booksForm = document.querySelector('.books-form');
+const bookTitle = document.getElementById('title');
+const bookAuthor = document.getElementById('author');
 
 const booksArr = [];
 
 // local storage
 function booksStorage() {
-  localStorage.setItem("books", JSON.stringify(booksArr));
+  localStorage.setItem('books', JSON.stringify(booksArr));
 }
 // add book to list
 function addBook(title, author) {
   const newBook = {
-    title: title,
+    title,
     author,
   };
   booksArr.push(newBook);
 
-  const bookItem = document.createElement("div");
+  const bookItem = document.createElement('div');
   booksArr.forEach((book, index) => {
     bookItem.innerHTML = `
     <div class="book-item">
@@ -27,8 +27,9 @@ function addBook(title, author) {
     <button type="button" id="${index}" class="remove-btn">Remove</button>   
     </div>
     <hr>`;
-    const removeBtn = bookItem.querySelector(".remove-btn");
-    removeBtn.addEventListener("click", () => {
+
+    const removeBtn = bookItem.querySelector('.remove-btn');
+    removeBtn.addEventListener('click', () => {
       booksArr.splice(index, 1);
       bookItem.remove();
       booksStorage();
@@ -38,3 +39,24 @@ function addBook(title, author) {
 
   booksContainer.appendChild(bookItem);
 }
+
+// submit button event
+booksForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  if (bookTitle.value !== '' && bookAuthor.value !== '') {
+    addBook(bookTitle.value, bookAuthor.value);
+
+    bookTitle.value = '';
+    bookAuthor.value = '';
+  }
+});
+
+function retrieveShelve() {
+  const books = JSON.parse(localStorage.getItem('books'));
+  if (books) {
+    books.forEach((book) => {
+      addBook(book.title, book.author);
+    });
+  }
+}
+retrieveShelve();

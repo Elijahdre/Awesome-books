@@ -6,7 +6,7 @@
 
 ## Live Demo
 
-- [Live]
+- [https://elijahdre.github.io/Awesome-books/]
 
 ## Built with
 
