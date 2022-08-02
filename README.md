@@ -1,41 +1,53 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Awesome books
+# Awesome Books
 
-> This project is about building an app that stores books in the browser's local storage using plain Javascript.
+> A basic website that allows users to add/remove books from a list by using JavaScript objects and arrays.
 
 ## Live Demo
 
-this is link to our live Demo [Live Demo]()
-## Built With
+- [Live]
 
-- Javascript
-- HTML
-- CSS
+## Built with
 
+- HTML/CSS
+- JavaScript
 
-## Usage
+## Getting Started
 
-Clone this repo and open the index.html file with your favorite browser.
+- Clone the repo `git@github.com:shyusu4/Awesome-Books.git`
+- cd `into` the project
+- Run `git pull origin app`
+- Run `yarn install` or `npm install` to install dependencies
+- On the terminal run `npm run start` open up the live server
+- To run tests write `npm run test` on the terminal
 
-## Author
+## Authors
 
-👤 **Author**
+👤 Shakhrizoda Yusupova
 
-- GitHub: [Elijahdre](https://github.com/Elijahdre)
-- Twitter: [@Kingglijah](https://twitter.com/kingglijah)
-- LinkedIn: [Elijah Odjegba](https://www.linkedin.com/in/elijah-odjegba-862708179/)
+- GitHub: [@shyusu4](https://github.com/shyusu4)
+- LinkedIn: [Shakhrizoda Yusupova](https://www.linkedin.com/in/shakhrizoda-yusupova-789253229/?originalSubdomain=uz)
+
+👤 Elijah Andre
+
+- GitHub: [@elijahdre](https://github.com/Elijahdre)
+- LinkedIn: [Elijah Andre](https://www.linkedin.com/in/elijah-odjegba-862708179/)
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!
+Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/Elijahdre/Awesome-books/issues).
+Feel free to check the [issues page.](https://github.com/shyusu4/Awesome-Books/issues)
 
 ## Show your support
 
 Give a ⭐️ if you like this project!
 
+## Acknowledgments
+
+- Microverse
+
 ## 📝 License
 
-This project is MIT Lisenced
+Free license.
