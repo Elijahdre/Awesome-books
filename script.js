@@ -25,8 +25,7 @@ function addBook(title, author) {
     <p class="book-title">"${book.title}"</p>
     <p class="book-author">by ${book.author}</p>
     <button type="button" id="${index}" class="remove-btn">Remove</button>                                            
-    </div>
-    <hr>`;
+    </div>`;
 
     const removeBtn = bookItem.querySelector('.remove-btn');
     removeBtn.addEventListener('click', () => {
