@@ -8,16 +8,16 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header>
-      <h1>Awesome books</h1>
+    <header class="books-header">
       <div id="books-container"></div>
     </header>
-    <main>
+    <main class="books-main">
+      <h2>Add a new book</h2> 
       <form class="books-form" action="#">
-        <input id="title" type="text" placeholder="Title" />
+        <input class="books-form-item" id="title" type="text" placeholder="Title" required />
         <br />
         <br />
-        <input id="author" type="text" placeholder="Author" />
+        <input class="books-form-item" id="author" type="text" placeholder="Author" required/>
         <br />
         <br />
         <button class="add-btn" type="submit">Add</button>
