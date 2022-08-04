@@ -20,12 +20,12 @@ p {
 }
 
 
-.books-main {
+ .books-main {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 10%;
-}
+} 
 
 .books-form-item {
   padding: 8px;
@@ -67,6 +67,11 @@ p {
   padding: 10px 0;
 }
 
+.book-item:nth-child(odd) {
+  background-color: lightgray;
+}
+
+
 .remove-btn {
   border: none;
   border-radius: 5%;
@@ -80,11 +85,11 @@ p {
 }
 
 input {
-  border: 3px solid black;                      **
+  border: 3px solid black;                      
 }
 
 
 input[type='text'] {
   width: 500px;
-  height: 30px;                  **
+  height: 30px;                  
 }
