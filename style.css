@@ -2,9 +2,11 @@
 
 * {
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
-}
-/* 
+  text-decoration: none;
+  list-style: none;
+} 
+
+
 body {
   text-align: center;
 }
@@ -90,18 +92,31 @@ input {
 input[type='text'] {
   width: 500px;
   height: 30px;
-} */
+} 
 
-.nav {
+
+
+.navbar {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.nav-items {
+.nav-branding {
+   
+}
+
+.nav-menu {
   display: flex;
-  list-style: none;
+  gap: 20px;
+}
+
+.nav-link {
+  
 }
 
 .nav-item {
-  text-decoration: none;
+  display: flex;
+  flex-direction: column;
 }
