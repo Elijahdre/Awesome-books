@@ -14,6 +14,19 @@ header {
   border: 3px solid black;
 }
 
+.hide {
+  display: none;
+}
+
+.date {
+  position: absolute;
+  color: #fff
+  bottom: -4rem;
+  right: 1rem;
+  font-size: 20px;
+  font-weight: 300;
+}
+
 a:hover,
 a:active,
 a:focus,
@@ -24,6 +37,11 @@ a:enabled {
 p {
   margin-left: 20px;
   font-weight: bold;
+}
+
+section {
+  height: 100vh;
+  width: 100%;
 }
 
 #books-container {
