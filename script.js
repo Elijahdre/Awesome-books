@@ -23,8 +23,7 @@ function addBook(title, author) {
   booksArr.forEach((book, index) => {
     bookItem.innerHTML = `
     <div class="book-item">
-    <p class="book-title">${book.title}</p>
-    <p class="book-author">${book.author}</p>                                          
+    <p class="book-title">"${book.title}" by ${book.author}</p>                                          
     <button type="button" id="${index}" class="remove-btn">Remove</button>   
     </div>`;
 

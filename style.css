@@ -10,8 +10,20 @@ body {
   text-align: center;
 }
 
+header {
+  border: 3px solid black;
+}
+
+a:hover,
+a:active,
+a:focus,
+a:enabled {
+  color: rgb(20, 129, 231);
+}
+
 p {
   margin-left: 20px;
+  font-weight: bold;
 }
 
 #books-container {
@@ -52,6 +64,17 @@ p {
   border: 1px solid black;
   background-color: white;
   color: black;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-container,
+.form-container {
+  margin-top: 30px;
 }
 
 .books-container {
@@ -100,12 +123,52 @@ input[type="text"] {
   align-items: center;
 }
 
+.nav-branding {
+  font-size: 30px;
+  font-weight: bold;
+  align-self: center;
+  color: black;
+}
+
 .nav-menu {
   display: flex;
   gap: 20px;
+  align-self: center;
 }
 
 .nav-item {
   display: flex;
   flex-direction: column;
+}
+
+.nav-link {
+  margin: 0 9px;
+  position: relative;
+  color: black;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.contact-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+li {
+  font-weight: bold;
+}
+
+
+footer {
+  position: relative;
+  width: 100%;
+  bottom: 0;
+  border: 3px solid black;
+}
+
+.footer-p {
+  font-weight: bold;
+  margin-left: 20px;
 }
