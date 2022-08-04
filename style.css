@@ -1,11 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 * {
   box-sizing: border-box;
   text-decoration: none;
   list-style: none;
-} 
-
+}
 
 body {
   text-align: center;
@@ -68,9 +67,9 @@ p {
   padding: 10px 0;
 }
 
-.book-item:nth-child(odd) {
+/* .book-item:nth-child(odd) {
   background-color: lightgray;
-}
+} */
 
 .remove-btn {
   border: none;
@@ -89,12 +88,10 @@ input {
   border: 3px solid black;
 }
 
-input[type='text'] {
+input[type="text"] {
   width: 500px;
   height: 30px;
-} 
-
-
+}
 
 .navbar {
   display: flex;
@@ -103,17 +100,9 @@ input[type='text'] {
   align-items: center;
 }
 
-.nav-branding {
-   
-}
-
 .nav-menu {
   display: flex;
   gap: 20px;
-}
-
-.nav-link {
-  
 }
 
 .nav-item {
