@@ -3,9 +3,10 @@
 /* eslint-disable max-classes-per-file */
 
 class CreateBook {
-  constructor(title, author) {
+  constructor(title, author, id) {
     this.title = title;
     this.author = author;
+    this.id = id;
   }
 }
 
@@ -30,7 +31,7 @@ class LocalStorageClass {
 
   static removeFromTheStore(title) {
     const books = LocalStorageClass.getbooksFromStore();
-    const filteredArray = books.filter((book) => book.title !== title);
+    const filteredArray = books.filter((book) => book.id === title);
     localStorage.setItem('books', JSON.stringify(filteredArray));
   }
 }
@@ -44,7 +45,7 @@ class CreateBookElements {
     listContainer.className = 'book-item';
     listContainer.innerHTML += `
             <p>"${book.title}" by ${book.author}</p>
-            <button class="remove-btn">Delete</button>
+            <button class="remove-btn" data-remove="${book.id}">Delete</button>
             `;
 
     bookContainer.appendChild(listContainer);
@@ -59,10 +60,11 @@ class DisplayBookList {
     books.forEach((book) => CreateBookElements.createBookElement(book));
   }
 
-  static removeBook(target) {
+  static removeBook(target, dataset) {
     if (target.classList.contains('remove-btn')) {
       target.parentElement.remove();
-      LocalStorageClass.removeFromTheStore();
+
+      LocalStorageClass.removeFromTheStore(dataset);
     }
   }
 }
@@ -75,8 +77,10 @@ const author = document.getElementById('author');
 document.querySelector('.books-form').addEventListener('submit', (e) => {
   e.preventDefault();
 
+  const bookId = Math.random();
+
   //   create book
-  const book = new CreateBook(title.value, author.value);
+  const book = new CreateBook(title.value, author.value, bookId);
 
   CreateBookElements.createBookElement(book);
 
@@ -93,7 +97,7 @@ document.querySelector('.books-form').addEventListener('submit', (e) => {
 
 // Remove book from UI
 document.querySelector('#books-container').addEventListener('click', (e) => {
-  DisplayBookList.removeBook(e.target);
+  DisplayBookList.removeBook(e.target, e.target.dataset);
 
   // remove book from the store
   LocalStorageClass.removeFromTheStore(
