@@ -1,106 +1,96 @@
-// Refactoring using classes
-
-/* eslint-disable max-classes-per-file */
-
-class CreateBook {
-  constructor(title, author, id) {
+class Book {
+  constructor(title, author) {
     this.title = title;
     this.author = author;
-    this.id = id;
   }
 }
 
-// localStorage classes
+const bookStorage = [];
 
-class LocalStorageClass {
-  static getbooksFromStore() {
-    let books;
-    if (localStorage.getItem('books') === null) {
-      books = [];
+/* eslint max-classes-per-file: ["error", 2] */
+
+class CreateBook {
+  static addBook(newBook, index) {
+    const library = document.querySelector('#books-container');
+    if (!localStorage.getItem('books')) {
+      const noBook = document.createElement('p');
+      noBook.innerHTML = 'No books in library';
+      library.appendChild(noBook);
+    }
+    const container = document.createElement('div');
+    container.innerHTML = `
+    <div class="book-item">
+     <p>"${newBook.title}" by ${newBook.author} </p>
+     <button class="remove-btn" data-remove=${index}>Delete</button>
+    </div>  
+     `;
+
+    library.appendChild(container);
+
+    bookStorage.push(newBook);
+  }
+
+  // delete function
+  static deleteBook(index) {
+    bookStorage.splice(index, 1);
+    CreateBook.updateLocalStorage();
+  }
+
+  // set local storage
+  static updateLocalStorage() {
+    localStorage.setItem('books', JSON.stringify(bookStorage));
+  }
+
+  // fetch local storage
+  static getLocalStorage() {
+    if (localStorage.getItem('books')) {
+      const books = JSON.parse(localStorage.getItem('books'));
+      books.forEach((book, index) => {
+        const newBook = new Book(book.title, book.author);
+        CreateBook.addBook(newBook, index);
+      });
     } else {
-      books = JSON.parse(localStorage.getItem('books'));
+      localStorage.setItem('books', JSON.stringify(bookStorage));
     }
-    return books;
-  }
-
-  static addbookToStore(book) {
-    const books = LocalStorageClass.getbooksFromStore();
-    books.push(book);
-    localStorage.setItem('books', JSON.stringify(books));
-  }
-
-  static removeFromTheStore(title) {
-    const books = LocalStorageClass.getbooksFromStore();
-    const filteredArray = books.filter((book) => book.id === title);
-    localStorage.setItem('books', JSON.stringify(filteredArray));
+    const deleteBtn = document.querySelectorAll('.remove-btn');
+    deleteBtn.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        const index = e.target.dataset.remove;
+        CreateBook.deleteBook(index);
+        CreateBook.updateLocalStorage();
+        e.target.parentElement.remove();
+      });
+    });
   }
 }
 
-// class to create book element inside the book list
+const form = document.querySelector('.books-form');
 
-class CreateBookElements {
-  static createBookElement(book) {
-    const bookContainer = document.querySelector('#books-container');
-    const listContainer = document.createElement('div');
-    listContainer.className = 'book-item';
-    listContainer.innerHTML += `
-            <p>"${book.title}" by ${book.author}</p>
-            <button class="remove-btn" data-remove="${book.id}">Delete</button>
-            `;
-
-    bookContainer.appendChild(listContainer);
-  }
-}
-
-// display class
-
-class DisplayBookList {
-  static displayBooks() {
-    const books = LocalStorageClass.getbooksFromStore();
-    books.forEach((book) => CreateBookElements.createBookElement(book));
-  }
-
-  static removeBook(target, dataset) {
-    if (target.classList.contains('remove-btn')) {
-      target.parentElement.remove();
-
-      LocalStorageClass.removeFromTheStore(dataset);
-    }
-  }
-}
-
-document.addEventListener('DOMContentLoaded', DisplayBookList.displayBooks);
-
-const title = document.getElementById('title');
-const author = document.getElementById('author');
-
-document.querySelector('.books-form').addEventListener('submit', (e) => {
+form.addEventListener('submit', (e) => {
   e.preventDefault();
+  const title = document.querySelector('#title').value;
+  const author = document.querySelector('#author').value;
 
-  const bookId = Math.random();
+  if (title !== '' && author !== '') {
+    const newBook = new Book(title, author);
+    CreateBook.addBook(newBook);
 
-  //   create book
-  const book = new CreateBook(title.value, author.value, bookId);
+    CreateBook.updateLocalStorage(newBook);
 
-  CreateBookElements.createBookElement(book);
+    document.querySelector('#title').value = '';
+    document.querySelector('#author').value = '';
 
-  // add it to local storage
-  LocalStorageClass.addbookToStore(book);
-  // append the book to the book list
+    document.querySelector('#title').focus();
+  }
 
-  //  Reseting the form inputs
-  const form = document.querySelector('.books-form');
-  form.reset();
+  const deleteBtn = document.querySelectorAll('.remove-btn');
+  deleteBtn.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      const index = e.target.dataset.remove;
+      CreateBook.deleteBook(index);
+      e.target.parentElement.remove();
+    });
+  });
 });
 
-// event: remove a book
-
-// Remove book from UI
-document.querySelector('#books-container').addEventListener('click', (e) => {
-  DisplayBookList.removeBook(e.target, e.target.dataset);
-
-  // remove book from the store
-  LocalStorageClass.removeFromTheStore(
-    e.target.parentElement.firstElementChild.textContent,
-  );
-});
+CreateBook.getLocalStorage();
