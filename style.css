@@ -42,10 +42,10 @@ p {
   font-weight: bold;
 }
 
-section {
+/* section {
   height: 100vh;
   width: 100%;
-}
+} */
 
 #books-container {
   border: 4px solid black;
@@ -111,8 +111,20 @@ section {
   padding: 10px 0;
 }
 
-/* .book-item:nth-child(odd) {
+.book-item:nth-child(odd) {
   background-color: lightgray;
+}
+
+li:not(:last-child) {
+  list-style: none;
+  float: left;
+  border-right: 1px solid black;
+  margin: 0 2px;
+}
+
+/* #books-container .book-item:nth-child(odd) {
+  background-color: rgb(223, 219, 219);
+  color: #000;
 } */
 
 .remove-btn {
