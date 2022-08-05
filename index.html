@@ -9,21 +9,64 @@
   </head>
   <body>
     <header>
-      <h1>Awesome books</h1>
-      <div id="books-container"></div>
+      <nav class="navbar">
+        <div class="nav-branding">Awesome Books</div>
+
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="#" class="nav-link" id="list">List</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link" id="add-new">Add New</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link" id="contact">Contact</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="date">August 4th 2022, 20:00pm</div>
     </header>
     <main>
-      <form class="books-form" action="#">
-        <input id="title" type="text" placeholder="Title" />
-        <br />
-        <br />
-        <input id="author" type="text" placeholder="Author" />
-        <br />
-        <br />
-        <button class="add-btn" type="submit">Add</button>
-      </form>
-    </main>
+      <section class="books-list" id="all-book">
+        <h1>All Awesome books</h1>
+        <div id="books-container"></div>
+      </section>
 
+      <section id="add-new-book" class="hide">
+        <div class="form-container"></div>
+        <h2>Add a new book</h2>
+        <form class="books-form" action="#">
+          <input id="title" type="text" placeholder="Title" />
+          <br />
+          <br />
+          <input id="author" type="text" placeholder="Author" />
+          <br />
+          <br />
+          <button class="add-btn" type="submit">Add</button>
+        </form>
+      </section>
+
+      <section class="hide" id="contact-form">
+        <div class="contact-container">
+          <h2>Contact Information</h2>
+          <p>
+            Do you have any questions or you just want to say "Hello"? <br />
+            You can reach out to us!
+          </p>
+          <ul>
+            <li>Our email: email@email.com</li>
+            <li>Our Phone Number: 00043522</li>
+            <li>Our Address: New Town 345, Downing street, Uk.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p class="footer-p">
+        Copyright: &copy; 2022, all rights are reserved by Elijah and
+        Shakhrizoda
+      </p>
+    </footer>
     <script src="script.js"></script>
   </body>
 </html>

@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 /* eslint-disable no-unused-vars */
 const booksContainer = document.querySelector('#books-container');
 const booksForm = document.querySelector('.books-form');
@@ -22,11 +23,9 @@ function addBook(title, author) {
   booksArr.forEach((book, index) => {
     bookItem.innerHTML = `
     <div class="book-item">
-    <p class="book-title">${book.title}</p>
-    <p class="book-author">${book.author}</p>                                          
+    <p class="book-title">"${book.title}" by ${book.author}</p>                                          
     <button type="button" id="${index}" class="remove-btn">Remove</button>   
-    </div>
-    <hr>`;
+    </div>`;
 
     const removeBtn = bookItem.querySelector('.remove-btn');
     removeBtn.addEventListener('click', () => {
@@ -60,3 +59,34 @@ function retrieveShelve() {
   }
 }
 retrieveShelve();
+
+// buttons
+const navList1 = document.getElementById('list');
+const navList2 = document.getElementById('add-new');
+const navList3 = document.getElementById('contact');
+
+// sections
+const sectionOne = document.getElementById('all-book');
+const sectionTwo = document.getElementById('add-new-book');
+const sectionThree = document.getElementById('contact-form');
+
+navList1.addEventListener('click', (e) => {
+  e.preventDefault();
+  sectionOne.classList.remove('hide');
+  sectionTwo.classList.add('hide');
+  sectionThree.classList.add('hide');
+});
+
+navList2.addEventListener('click', (e) => {
+  e.preventDefault();
+  sectionOne.classList.add('hide');
+  sectionTwo.classList.remove('hide');
+  sectionThree.classList.add('hide');
+});
+
+navList3.addEventListener('click', (e) => {
+  e.preventDefault();
+  sectionOne.classList.add('hide');
+  sectionTwo.classList.add('hide');
+  sectionThree.classList.remove('hide');
+});
