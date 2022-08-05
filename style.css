@@ -111,8 +111,12 @@ p {
   padding: 10px 0;
 }
 
-.book-item:nth-child(odd) {
+.book-item.nth-child(odd) {
   background-color: lightgray;
+}
+
+li {
+  font-weight: bold;
 }
 
 li:not(:last-child) {
@@ -186,10 +190,6 @@ input[type="text"] {
   display: flex;
   align-items: center;
   flex-direction: column;
-}
-
-li {
-  font-weight: bold;
 }
 
 footer {
