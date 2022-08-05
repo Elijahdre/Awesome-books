@@ -42,10 +42,10 @@ p {
   font-weight: bold;
 }
 
-/* section {
+section {
   height: 100vh;
   width: 100%;
-} */
+}
 
 #books-container {
   border: 4px solid black;
