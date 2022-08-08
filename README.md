@@ -38,7 +38,7 @@
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page.](https://github.com/shyusu4/Awesome-Books/issues)
+Feel free to check the [issues page.](https://github.com/Elijahdre/Awesome-books/issues)
 
 ## Show your support
 
