@@ -15,7 +15,7 @@
 
 ## Live Demo 🔗
 
-Check out the live demo [here]()👈
+Check out the live demo [here](https://elijahdre.github.io/Awesome-books/)👈
 
 ## Getting Started
 
